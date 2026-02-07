@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scrivimi - Giorgia Obino</title>
+    <link rel="stylesheet" href="scrivimi.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="smile.png">
+    <link rel="apple-touch-icon" href="smile.png">
+</head>
+<body class="dark-bg"> <nav>
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="il-mio-lavoro.html">IL MIO LAVORO</a></li>
+            <li><a href="scrivimi.html">SCRIVIMI</a></li>
+        </ul>
+    </nav>
+
+    <section class="scrivimi-container">
+        <div class="scrivimi-wrapper">
+            
+            <div class="left-half">
+                
+                <div class="side-accent">
+                    <span class="vertical-text">contattami</span>
+                    <div class="vertical-line"></div>
+                </div>
+                
+                <div class="form-container">
+                    <h2 class="form-title">SCRIVIMI QUI</h2>
+                    
+                    <form id="my-form" action="https://formspree.io/f/xykdypqa" method="POST">
+
+                        <div class="form-group">
+                            <label>Nome e Cognome</label>
+                            <input type="text" name="name" placeholder="Inserisci il tuo nome" required>
+                        </div>
+                    
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" name="email" placeholder="Inserisci la tua mail" required>
+                        </div>
+                    
+                        <div class="form-group">
+                            <label>Messaggio</label>
+                            <textarea name="message" placeholder="Scrivi qui il tuo messaggio..." required></textarea>
+                        </div>
+                    
+                        <p id="status" style="display:none;"></p>
+                    
+                        <button type="submit" id="submit-btn" class="submit-btn">Invia</button>
+                    
+                    </form>
+                </div>
+    
+            </div>
+    
+            <div class="right-half">
+                <div class="grey-card">
+                    <h3>DOVE MI TROVO</h3>
+                    <div class="map-placeholder">
+                        <img src="mappa-sardegna.png" alt="Mappa">
+                    </div>
+                </div>
+            </div>
+    
+        </div>
+    </section>
+
+    <script>
+        var form = document.getElementById("my-form");
+        
+        async function handleSubmit(event) {
+          event.preventDefault();
+          var status = document.getElementById("status");
+          var button = document.getElementById("submit-btn");
+          var data = new FormData(event.target);
+          
+          button.innerHTML = "Invio in corso..."; 
+          button.disabled = true;
+      
+          fetch(event.target.action, {
+            method: form.method,
+            body: data,
+            headers: {
+                'Accept': 'application/json'
+            }
+          }).then(response => {
+            if (response.ok) {
+              status.innerHTML = "Grazie! Risponderò al più presto!";
+              status.style.display = "block";
+              status.style.color = "#e0d9d1"; 
+              form.reset(); 
+              button.style.display = "none"; 
+            } else {
+              response.json().then(data => {
+                if (Object.prototype.hasOwnProperty.call(data, 'errors')) {
+                  status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
+                } else {
+                  status.innerHTML = "Ops! C'è stato un problema durante l'invio.";
+                }
+                status.style.display = "block";
+                status.style.color = "#ff6b6b"; 
+                button.disabled = false;
+                button.innerHTML = "Invia";
+              })
+            }
+          }).catch(error => {
+            status.innerHTML = "Ops! Si è verificato un errore di connessione.";
+            status.style.display = "block";
+            button.disabled = false;
+            button.innerHTML = "Invia";
+          });
+        }
+        form.addEventListener("submit", handleSubmit)
+    </script>
+
+    <footer class="site-footer">
+        <div class="footer-line"></div>
+        <div class="footer-content">
+            <p>&copy; 2026 Giorgia Obino. Tutti i diritti riservati.</p>
+            <div class="footer-sub">
+                <span>Sardegna, Italia</span>
+                <span class="footer-dot">•</span>
+                <span>Handcrafted with Care</span>
+            </div>
+        </div>
+    </footer>
+
+    
+</body>
+</html>

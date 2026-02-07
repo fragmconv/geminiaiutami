@@ -1,0 +1,245 @@
+/* --- RESET E BASI --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #38302e;
+    color: #e0d9d1;
+    font-family: 'Montserrat', sans-serif !important; 
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* --- TITOLI GLOBALI (Montserrat) --- */
+h1, h2, h3, 
+.hero-right h1, 
+.subtitle, 
+.form-title, 
+.grey-card h3, 
+.lavoro-title, 
+.section-title,
+.contact-header h2 {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+/* --- TESTI CORPO (Montserrat) --- */
+p, li, a, label, input, textarea, .contact-item p {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+}
+
+/* --- ECCEZIONI FOOTER --- */
+.footer-content p {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 0.9rem;
+}
+
+.footer-sub {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* --- RIFINITURA CONTATTI --- */
+.contact-item p, .contact-item a {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+
+/* --- NAVIGAZIONE --- */
+nav {
+    padding: 40px 0;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 50px;
+}
+
+nav ul li a {
+    color: #e0d9d1;
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-size: 0.9rem;
+    transition: opacity 0.3s;
+}
+
+nav ul li a:hover {
+    opacity: 0.7;
+}
+
+/* --- SEZIONE IL MIO LAVORO --- */
+.lavoro-container {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 10%;
+}
+
+.lavoro-content {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    gap: 80px;
+    align-items: center;
+}
+
+/* Colonna Sinistra */
+.lavoro-left {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.sunburst-container {
+    position: relative;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lavoro-title {
+    /* CORRETTO: Ora Montserrat */
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: clamp(2rem, 3vw, 4rem); 
+    letter-spacing: 3px;
+    line-height: 1.2;
+    z-index: 2;
+    font-weight: 600; /* Un po' più di spessore per il titolo */
+}
+
+.sunburst-icon {
+    position: absolute;
+    width: 250%; 
+    opacity: 0.2;
+    z-index: 1;
+}
+
+/* Colonna Destra */
+.lavoro-right {
+    flex: 1;
+    position: relative;
+    padding-right: 40px;
+    padding-bottom: 80px; 
+}
+
+.lavoro-right p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    line-height: 2;
+    text-align: left;
+    font-weight: 300;
+}
+
+/* Decorazione Colomba */
+.dove-decor {
+    position: absolute;
+    bottom: -30px;
+    right: -20px;
+    width: clamp(150px, 12vw, 300px);
+    opacity: 0.8;
+    transition: width 0.3s ease;
+}
+
+/* Responsive per Mobile */
+@media (max-width: 768px) {
+    .lavoro-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 150px;
+    }
+    .lavoro-right p {
+        text-align: center;
+    }
+    .lavoro-title {
+        font-size: 1.8rem !important; 
+        max-width: 100%;
+        line-height: 1.5;
+        margin-bottom: 20px;
+    }
+
+    .sunburst-icon {
+        width: 500px; 
+        opacity: 0.1;
+    }
+    .dove-decor {
+        width: 250px; 
+        position: relative; 
+        display: block;
+        margin: 40px auto 0 auto; 
+        right: auto; 
+        bottom: auto;
+        opacity: 0.9;
+    }
+}
+
+.site-footer {
+    padding: 60px 5% 40px 5%;
+    background-color: transparent;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.footer-line {
+    width: 100%;
+    max-width: 1100px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(224, 217, 209, 0.3), transparent);
+    margin: 0 auto 30px auto;
+}
+
+.footer-content p {
+    font-family: 'Montserrat', sans-serif !important; /* CAMBIATO */
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    color: #e0d9d1;
+    opacity: 0.8;
+    margin-bottom: 10px;
+}
+
+.footer-sub {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #a8a29e;
+}
+
+.footer-dot {
+    margin: 0 10px;
+    font-size: 1rem;
+    vertical-align: middle;
+}
+
+@media (max-width: 768px) {
+    .site-footer {
+        padding: 40px 15px 30px 15px;
+    }
+    .footer-sub {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+    .footer-dot {
+        display: none;
+    }
+}
+
+#status {
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 300;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    /* Il colore lo gestisce il JavaScript, ma puoi metterlo anche qui */
+    color: #e0d9d1; 
+}
