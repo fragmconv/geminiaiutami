@@ -53,28 +53,48 @@ p, li, a, label, input, textarea, .contact-item p {
     font-weight: 300;
 }
 
-/* --- NAVIGAZIONE --- */
+/* Navigazione */
 nav {
-    padding: 40px 0;
+    padding: 30px 0;
+    width: 100%;
 }
 
 nav ul {
     display: flex;
     justify-content: center;
     list-style: none;
-    gap: 50px;
+    gap: 25px; /* Spazio ridotto tra i link */
+    flex-wrap: wrap; /* Fondamentale: permette ai link di andare a capo se non c'è spazio */
+    padding: 0 15px; /* Evita che i link tocchino i bordi dello schermo */
 }
 
 nav ul li a {
     color: #e0d9d1;
     text-decoration: none;
-    letter-spacing: 3px;
-    font-size: 0.9rem;
+    letter-spacing: 2px;
+    font-size: 0.85rem; /* Font leggermente più piccolo per stare in riga */
     transition: opacity 0.3s;
+    text-transform: uppercase;
 }
 
 nav ul li a:hover {
     opacity: 0.7;
+}
+
+/* --- FIX SPECIFICO PER MOBILE --- */
+@media (max-width: 768px) {
+    nav {
+        padding: 20px 0;
+    }
+    
+    nav ul {
+        gap: 15px; /* Ancora meno spazio su smartphone */
+    }
+    
+    nav ul li a {
+        font-size: 0.7rem; /* Ancora più piccolo per non sminchiarsi */
+        letter-spacing: 1px;
+    }
 }
 
 /* --- SEZIONE IL MIO LAVORO --- */
