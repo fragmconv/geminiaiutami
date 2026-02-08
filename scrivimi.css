@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: #38302e;
+    background-color: #2a2422;
     color: #e0d9d1;
     font-family: 'Montserrat', sans-serif !important; 
     line-height: 1.6;
@@ -206,7 +206,7 @@ nav ul li a:hover {
 }
 
 .submit-btn:hover {
-    background-color: #484242;
+    background-color: #6f645f;
     color: #ffffff;
 }
 
